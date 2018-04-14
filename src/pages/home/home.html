@@ -1,14 +1,58 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Loan Calculator
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-item>
+    <ion-label floating>Loan Amount</ion-label>
+    <ion-input [(ngModel)]="capitalAmount" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Interest</ion-label>
+    <ion-input [(ngModel)]="interest" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Installment(Months)</ion-label>
+    <ion-input [(ngModel)]="installments" type="number"></ion-input>
+  </ion-item>
+
+  <div style="margin-top: 30px;">
+    <button (click)="calculate()" ion-button>Calculate</button>
+    <button (click)="clear()" ion-button color="light">Clear</button>
+  </div>
+
+  <ion-grid style="margin-top: 10px;">
+    <ion-row>
+      <ion-col>
+        <b>Date</b>
+      </ion-col>
+      <ion-col>
+        <b>Capital</b>
+      </ion-col>
+      <ion-col>
+        <b>Interest</b>
+      </ion-col>
+      <ion-col>
+        <b>Installment</b>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let slab of schedule">
+      <ion-col>
+        <b>{{ slab.date | date: 'yyyy LLL dd' }}</b>
+      </ion-col>
+      <ion-col>
+        <b>{{ slab.capital | number:'1.2-2' }}</b>
+      </ion-col>
+      <ion-col>
+        <b>{{ slab.interest | number:'1.2-2' }}</b>
+      </ion-col>
+      <ion-col>
+        <b>{{ slab.installment | number:'1.2-2' }}</b>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

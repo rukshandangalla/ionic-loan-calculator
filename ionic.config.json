@@ -1,0 +1,8 @@
+{
+  "name": "loan-calculator",
+  "app_id": "d27d241d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
